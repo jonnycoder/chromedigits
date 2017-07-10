@@ -1,0 +1,52 @@
+<div class="auth-container">
+    <div class="scrollable">
+        <div class="scrollable-content">
+            
+                 
+            <!-- LOGIN OR CHOOSE PIN -->
+            <div ng-show="authStep===4">
+                <div class="submenu clearfix" ng-show="!deviceAuthenticated()">
+                    <ul class="clearfix">
+                        <li><a ng-click="authStep=3;" class="back-button active"></a></li>
+                    </ul>
+                </div>
+                <div class="pin-number" ng-show="deviceAuthenticated()">
+                    <!-- <h1 class="app-name">{{getLocalStorage('clientName')}}</h1> -->
+                    <img class="app-logo" ng-src="img/clients/{{logoGraphicName()}}.svg"/>
+                    <h3>Welcome back, {{getLocalStorage('userName')}}</h3>
+                    <span class="sm">Enter your pin number</span>
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                    <input type="number" pattern="[0-9]*" ng-model="userAuthPin"  autocomplete="off"   autofocus="autofocus" optic-numeric-limit="4" optic-numeric-string="userAuthPinChars"  />
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                </div>
+                
+                <div class="pin-number" ng-show="!deviceAuthenticated()">
+                    <h3>Create a 4 digit Pin Code</h3>
+                    <span class="sm">Enter a pin number</span>
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                    <input type="number" pattern="[0-9]*" ng-model="userAuthPinEnter" autocomplete="off" autofocus="autofocus" optic-numeric-limit="4" optic-numeric-string="userAuthPinEnterChars"/>
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                </div>
+                <div class="pin-number" ng-show="!deviceAuthenticated()">
+                    <span class="sm">Verify your pin number</span>
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                    <input type="number" pattern="[0-9]*" ng-model="userAuthPinConfirm"  autocomplete="off"  optic-numeric-limit="4" optic-numeric-string="userAuthPinConfirmChars" />
+                    <!-- //////////////////////opticNumericLimit////////////////////-->
+                    
+                </div>
+                
+                <div>
+                    <button class="btn btn-primary" ng-click="login()" ng-disabled="(pinsIncomplete() && !deviceAuthenticated()) || loggingIn">
+                        <span ng-show="!loggingIn">Login</span>
+                        <span ng-show="loggingIn">Logging in...</span>
+                    </button>
+                </div>
+                
+                <div class="alert">{{errorMessage}}</div>
+            </div>
+            
+
+        </div>
+    </div>
+    
+</div>
