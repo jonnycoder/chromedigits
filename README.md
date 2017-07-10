@@ -11,11 +11,11 @@ This activates a directive numericLimit which limits the length of the number to
 
 See the following files for portions of the functionality:
 
-directives.js - the directive that does the magic of shuttling every numeric character (backspaces too!) to manage the string representation of the field
+- directives.js - the directive that does the magic of shuttling every numeric character (backspaces too!) to manage the string representation of the field
 
-auth.html - areas of the view that have hooks to the directive are heavily commented/highlighted
+- auth.html - areas of the view that have hooks to the directive are heavily commented/highlighted
 
-auth.js - auth controller for the view that sets up the fields plus shadow character fields in $scope
+- auth.js - auth controller for the view that sets up the fields plus shadow character fields in $scope
 
 
 
