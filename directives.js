@@ -1,4 +1,4 @@
-angular.module('bewellMobile')
+angular.module('applicationMobile')
 ///
 ///  opticNumericLimit - attribute based way to:
 ///    1 - Limit the length on a numberic field while...
